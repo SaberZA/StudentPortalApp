@@ -1,0 +1,1 @@
+powershell ./SignApp.ps1
