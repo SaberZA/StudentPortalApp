@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B0B9BB68-7B43-49DC-A5FD-69179A4ADB77}</ProjectGuid>
+    <ProjectGuid>{CD401694-5A2D-457D-99AD-A7CE0CBB739D}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>StudentPortalApp.Droid.UITest</RootNamespace>
-    <AssemblyName>StudentPortalApp.Droid.UITest</AssemblyName>
+    <RootNamespace>StudentPortalApp.Ios.UITest</RootNamespace>
+    <AssemblyName>StudentPortalApp.Ios.UITest</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -59,9 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

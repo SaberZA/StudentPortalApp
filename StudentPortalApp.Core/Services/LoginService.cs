@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace StudentPortalApp.Core.Tests
+namespace StudentPortalApp.Core.Services
 {
-    public class LoginViewModelTest
+    public class LoginService
     {
     }
 }
