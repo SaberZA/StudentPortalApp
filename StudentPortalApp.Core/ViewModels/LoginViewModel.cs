@@ -15,13 +15,14 @@ namespace StudentPortalApp.Core.ViewModels
     [ImplementPropertyChanged]
     public class LoginViewModel : MvxViewModel, IViewModel<LoginModel>
     {
-        private readonly ILoginCommand _loginCommand;
-
         public LoginViewModel(
             ILoginService loginService,
             ILoginCommand loginCommand)
         {
-            Login = loginCommand.Init(this, loginService);
+            //Execute CommandFactory here
+
+            Login = loginCommand
+                        .BuildWith(loginService);
         }
 
         public string Username { get; set; }
@@ -29,7 +30,7 @@ namespace StudentPortalApp.Core.ViewModels
 
         public LoginModel Model { get; set; }
 
-        public ILoginCommand Login { get; set; }
+        public IMvxCommand Login { get; set; }
         public IAuthCommand AuthCommand { get; set; }
     }
 
@@ -37,9 +38,14 @@ namespace StudentPortalApp.Core.ViewModels
     {
     }
 
-    public interface ILoginCommand : IMvxCommand
+    public interface ILoginCommand : ICommandBuilder
     {
-        ILoginCommand Init(IViewModel<LoginModel> loginViewModel, ILoginService loginService);
+        //ILoginCommand Init(IViewModel<LoginModel> loginViewModel, ILoginService loginService);
+    }
+
+    public interface ICommandBuilder : IMvxCommand
+    {
+        ICommandBuilder BuildWith<T>(T loginService);
     }
 
     public class AuthTokenModel
