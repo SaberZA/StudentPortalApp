@@ -80,10 +80,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fixtures\LoginViewModelFixture.cs" />
     <Compile Include="LoginViewModelTest.cs" />
     <Compile Include="Mocks\InlineMockDispatcher.cs" />
     <Compile Include="Mocks\MockMvxViewDispatcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Setup\MvvmCrossTestSetup.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
