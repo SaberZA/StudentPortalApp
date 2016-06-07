@@ -11,18 +11,18 @@ namespace StudentPortalApp.Core.Commands
 {
     public class LoginCommand : MCommand, ILoginCommand
     {
-        public LoginCommand(ILoginService loginService)
+        public LoginCommand(ILoginService loginService, ILoginViewModel viewModel)
         {
             _loginService = loginService;
+            _viewModel = viewModel;
         }
 
-        private IViewModel<LoginModel> _viewModel;
+        private ILoginViewModel _viewModel;
         private ILoginService _loginService;
-        
 
         public override void Execute(object parameter)
         {
-            
+            _loginService.AuthenticateUser(_viewModel.Username, _viewModel.Password);
         }
 
         public override bool CanExecute()

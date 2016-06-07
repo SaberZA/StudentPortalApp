@@ -13,25 +13,25 @@ using StudentPortalApp.Core.Services;
 namespace StudentPortalApp.Core.ViewModels
 {
     [ImplementPropertyChanged]
-    public class LoginViewModel : MvxViewModel, IViewModel<LoginModel>
+    public class LoginViewModel : MvxViewModel, ILoginViewModel
     {
         public LoginViewModel(
-            ILoginService loginService,
-            ILoginCommand loginCommand)
+            ILoginService loginService)
         {
             //Execute CommandFactory here
 
-            Login = loginCommand
-                        .BuildWith(loginService);
-        }
+            Login = new LoginCommand(loginService, this);
 
+            //loginCommand.ViewModel = this;
+        }
+        
         public string Username { get; set; }
         public string Password { get; set; }
 
-        public LoginModel Model { get; set; }
+        //public LoginModel Model { get; set; }
 
         public IMvxCommand Login { get; set; }
-        public IAuthCommand AuthCommand { get; set; }
+        
     }
 
     public interface IAuthCommand : ICommand

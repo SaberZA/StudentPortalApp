@@ -1,4 +1,7 @@
-﻿using MvvmCross.Platform.IoC;
+﻿using MvvmCross.Core;
+using MvvmCross.Core.Platform;
+using MvvmCross.Platform.IoC;
+using MvvmCross.Platform.Platform;
 using MvvmCross.Test.Core;
 
 namespace StudentPortalApp.Core.Test
@@ -7,10 +10,11 @@ namespace StudentPortalApp.Core.Test
     {
         public KcmfMvxIoCSupportingTest()
         {
+            
         }
 
         public IMvxIoCProvider Container => Ioc;
 
         public new void ClearAll() => base.ClearAll();
-    }
+    }    
 }

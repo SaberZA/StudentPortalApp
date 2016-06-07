@@ -1,20 +1,18 @@
-using System;
-using MvvmCross.Core.Platform;
-using MvvmCross.Core.Views;
-using MvvmCross.Platform.Core;
-using MvvmCross.Platform.IoC;
+﻿using MvvmCross.Platform.IoC;
 using NSubstitute;
 using StudentPortalApp.Core.Services;
-using StudentPortalApp.Core.Test.Mocks;
 using StudentPortalApp.Core.Test.Setup;
 using StudentPortalApp.Core.ViewModels;
-using MvvmCross.Core;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace StudentPortalApp.Core.Test.Fixtures
 {
-    public class LoginViewModelFixture : IDisposable
+    public class LoginCommandFixture : IDisposable
     {
-
         public void Dispose()
         {
 
@@ -30,7 +28,7 @@ namespace StudentPortalApp.Core.Test.Fixtures
         private static void InitialiseIoc(IMvxIoCProvider ioc)
         {
             ioc.RegisterType(() => Substitute.For<ILoginService>());
-            ioc.RegisterType(() => Substitute.For<ILoginCommand>());            
+            ioc.RegisterType(() => Substitute.For<ILoginViewModel>());
         }
-    }    
+    }
 }

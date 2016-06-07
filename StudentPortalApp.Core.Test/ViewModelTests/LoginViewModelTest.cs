@@ -70,10 +70,7 @@ namespace StudentPortalApp.Core.Test
             //Assert
             Assert.Equal("Password", receivedPropertyChanged);
         }
-
-
-
-        // TODO: ADD TEST FOR IOCConstruct
+        
         [Fact]
         public void IocConstruct_GivenLoginViewModel_ShouldReturnNotNull()
         {
@@ -98,35 +95,12 @@ namespace StudentPortalApp.Core.Test
             Assert.NotNull(loginViewModel.Login);
         }
 
-        [Fact]
-        public void Execute_GivenLoginCommand_ShouldCallLoginService()
-        {
-            // Arrange
-            var loginService = Substitute.For<ILoginService>();
-            var loginCommand = new LoginCommand();
-            var loginViewModel = CreateLoginViewModel(loginService, loginCommand);
-            var username = "user";
-            var password = "test";
-
-            //Act
-            loginViewModel.Username = username;
-            loginViewModel.Password = password;
-            loginViewModel.Login.Execute();
-
-            //Assert
-            loginService.Received().AuthenticateUser(username, password);
-        }
-
-        private static LoginViewModel CreateLoginViewModel(ILoginService loginService, ILoginCommand loginCommand)
-        {
-            return new LoginViewModel(loginService, loginCommand);
-        }
-
+        
+        
         private static LoginViewModel CreateLoginViewModel()
         {
             var loginService = Substitute.For<ILoginService>();
-            var loginCommand = Substitute.For<ILoginCommand>();
-            return new LoginViewModel(loginService, loginCommand);
+            return new LoginViewModel(loginService);
         }
     }
 }

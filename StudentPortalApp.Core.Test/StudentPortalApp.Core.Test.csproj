@@ -80,9 +80,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandTests\LoginCommandTest.cs" />
+    <Compile Include="Fixtures\LoginCommandFixture.cs" />
     <Compile Include="Fixtures\LoginViewModelFixture.cs" />
     <Compile Include="KcmfMvxIoCSupportingTest.cs" />
-    <Compile Include="LoginViewModelTest.cs" />
+    <Compile Include="ViewModelTests\LoginViewModelTest.cs" />
     <Compile Include="Mocks\InlineMockDispatcher.cs" />
     <Compile Include="Mocks\MockDispatcher.cs" />
     <Compile Include="Mocks\MockMvxViewDispatcher.cs" />

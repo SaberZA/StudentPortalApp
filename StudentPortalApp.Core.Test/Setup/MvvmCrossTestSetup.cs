@@ -25,7 +25,7 @@ namespace StudentPortalApp.Core.Test.Setup
 
         public static IMvxIoCProvider Execute()
         {
-            MvxSingleton.ClearAllSingletons();
+            MvxSingleton.ClearAllSingletons();            
             var ioc = MvxSimpleIoCContainer.Initialize();
 
             var dispatcher = new InlineMockMainThreadDispatcher();
@@ -45,9 +45,7 @@ namespace StudentPortalApp.Core.Test.Setup
             MvxTrace.Initialize();
 
             return ioc;
-        }
-
-        
+        }        
 
         private static void InitialiseMvxSettings(IMvxIoCProvider ioc)
         {
@@ -61,7 +59,6 @@ namespace StudentPortalApp.Core.Test.Setup
 
         private class TestTrace : IMvxTrace
         {
-            /* unchanged ... */
             public void Trace(MvxTraceLevel level, string tag, Func<string> message)
             {
                 Debug.WriteLine(message());

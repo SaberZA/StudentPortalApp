@@ -41,6 +41,7 @@
     <Folder Include="Repositories\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ViewModels\ILoginViewModel.cs" />
     <Compile Include="_base\IMCommand.cs" />
     <Compile Include="Commands\LoginCommand.cs" />
     <Compile Include="_base\MCommand.cs" />
