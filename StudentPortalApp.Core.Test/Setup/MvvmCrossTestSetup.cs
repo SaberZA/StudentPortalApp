@@ -9,6 +9,10 @@ using MvvmCross.Core.Platform;
 using MvvmCross.Platform.Core;
 using MvvmCross.Platform.IoC;
 using MvvmCross.Platform.Platform;
+using NSubstitute;
+using StudentPortalApp.Core.Services;
+using StudentPortalApp.Core.Test.Mocks;
+using StudentPortalApp.Core.ViewModels;
 
 namespace StudentPortalApp.Core.Test.Setup
 {
@@ -19,17 +23,31 @@ namespace StudentPortalApp.Core.Test.Setup
         //    Execute(new NullSingletonRegisterer());
         //}
 
-        public static void Execute()
+        public static IMvxIoCProvider Execute()
         {
             MvxSingleton.ClearAllSingletons();
             var ioc = MvxSimpleIoCContainer.Initialize();
+
+            var dispatcher = new InlineMockMainThreadDispatcher();
+            
+            ioc.RegisterSingleton(dispatcher);
+            ioc.RegisterSingleton<IMvxMainThreadDispatcher>(dispatcher);
+
+            // for navigation parsing
+            ioc.RegisterSingleton<IMvxStringToTypeParser>(new MvxStringToTypeParser());
+            
             ioc.RegisterSingleton(ioc);
             ioc.RegisterSingleton<IMvxTrace>(new TestTrace());
             //singletonRegisterer.RegisterSingletons(ioc);
             InitialiseSingletonCache();
             InitialiseMvxSettings(ioc);
+
             MvxTrace.Initialize();
+
+            return ioc;
         }
+
+        
 
         private static void InitialiseMvxSettings(IMvxIoCProvider ioc)
         {

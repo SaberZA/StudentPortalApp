@@ -1,5 +1,12 @@
 using System;
+using MvvmCross.Core.Platform;
+using MvvmCross.Core.Views;
+using MvvmCross.Platform.Core;
+using MvvmCross.Platform.IoC;
+using NSubstitute;
+using StudentPortalApp.Core.Services;
 using StudentPortalApp.Core.Test.Mocks;
+using StudentPortalApp.Core.Test.Setup;
 
 namespace StudentPortalApp.Core.Test.Fixtures
 {
@@ -10,11 +17,18 @@ namespace StudentPortalApp.Core.Test.Fixtures
             
         }
 
-        public void Init(LoginViewModelTest mvxIoCSupportingTest)
+        public void Init(LoginViewModelTest test)
         {
-            mvxIoCSupportingTest.ClearAll();
-            var dispatcher = new InlineMockMainThreadDispatcher();
-            mvxIoCSupportingTest.RegisterSingleton(dispatcher);
+            test.ClearAll();
+            
+
+            MvvmCrossTestSetup.Execute();
+            InitialiseIoc(test.Container);
+        }
+
+        private static void InitialiseIoc(IMvxIoCProvider ioc)
+        {
+            ioc.RegisterType(() => Substitute.For<ILoginService>());
         }
     }
 }

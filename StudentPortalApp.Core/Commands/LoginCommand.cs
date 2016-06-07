@@ -5,18 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using MvvmCross.Core.ViewModels;
 using StudentPortalApp.Core.Models;
+using StudentPortalApp.Core.Services;
 using StudentPortalApp.Core.ViewModels;
 
 namespace StudentPortalApp.Core.Commands
 {
-    public class LoginCommand : IMvxCommand
+    public class LoginCommand : ILoginCommand
     {
         private IViewModel<LoginModel> _viewModel;
-
-        public LoginCommand(IViewModel<LoginModel> viewModel)
-        {
-            _viewModel = viewModel;
-        }
+        private ILoginService _loginService;
 
         public bool CanExecute(object parameter)
         {
@@ -42,6 +39,15 @@ namespace StudentPortalApp.Core.Commands
         public bool CanExecute()
         {
             return true;
+        }
+
+        public ILoginCommand Init(IViewModel<LoginModel> viewModel, ILoginService loginService)
+        {
+            _loginService = loginService;
+            _viewModel = viewModel;
+            
+
+            return this;
         }
     }
 }

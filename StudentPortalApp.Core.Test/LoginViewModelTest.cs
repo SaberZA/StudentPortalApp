@@ -1,20 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MvvmCross.Platform.Core;
-using MvvmCross.Test.Core;
 using NSubstitute;
+using NSubstitute.Core;
+using StudentPortalApp.Core.Services;
 using StudentPortalApp.Core.Test.Fixtures;
+using StudentPortalApp.Core.Test.Mocks;
 using StudentPortalApp.Core.ViewModels;
 using Xunit;
 
 namespace StudentPortalApp.Core.Test
 {
-    public class LoginViewModelTest : MvxIoCSupportingTest, IClassFixture<LoginViewModelFixture>
+    public class LoginViewModelTest : KcmfMvxIoCSupportingTest, IClassFixture<LoginViewModelFixture>
     {
-        public LoginViewModelTest(LoginViewModelFixture fixture)
+        public LoginViewModelTest(LoginViewModelFixture fixture) : base()
         {
             fixture.Init(this);
         }
@@ -23,20 +26,21 @@ namespace StudentPortalApp.Core.Test
         public void Username_SetViewModelLogin_User1()
         {
             // Arrange
-            var loginViewModel = new LoginViewModel();
+            var loginViewModel = new LoginViewModel(Substitute.For<ILoginService>(), Substitute.For<ILoginCommand>());
             //Act
             loginViewModel.Username = "User1";
 
             //Assert
             Assert.Equal(loginViewModel.Username, "User1");
-        }
+        }        
 
         [Fact]
         public void Username_SetViewModelLogin_ShouldCallRaisePropertyChanged()
         {
             // Arrange
             var receivedPropertyChanged = "";
-            var loginViewModel = new LoginViewModel();
+
+            var loginViewModel = new LoginViewModel(Substitute.For<ILoginService>(), Substitute.For<ILoginCommand>());
             loginViewModel.PropertyChanged += (sender, args) =>
             {
                 receivedPropertyChanged = args.PropertyName;
@@ -54,11 +58,8 @@ namespace StudentPortalApp.Core.Test
         {
             // Arrange
             var receivedPropertyChanged = "";
-            var loginViewModel = new LoginViewModel();
-            loginViewModel.PropertyChanged += (sender, args) =>
-            {
-                receivedPropertyChanged = args.PropertyName;
-            };
+            var loginViewModel = new LoginViewModel(Substitute.For<ILoginService>(), Substitute.For<ILoginCommand>());
+            loginViewModel.PropertyChanged += (sender, args) => { receivedPropertyChanged = args.PropertyName; };
 
             //Act
             loginViewModel.Password = "test";
@@ -66,15 +67,28 @@ namespace StudentPortalApp.Core.Test
             //Assert
             Assert.Equal("Password", receivedPropertyChanged);
         }
+
+        // TODO: ADD TEST FOR IOCConstruct
         
-        public new void ClearAll()
+        [Fact]
+        public void LoginService_LoginCommand_HasService()
         {
-            base.ClearAll();
+            // Arrange
+
+
+            //Act
+            var loginService = Substitute.For<ILoginService>();
+            var loginCommand = Substitute.For<ILoginCommand>();
+
+            var loginViewModel = Substitute.For<LoginViewModel>(loginService, loginCommand);
+
+            //Assert
+            Assert.NotNull(loginViewModel.Login);
+            //loginViewModel.Login.Received().Init(loginViewModel, loginService);
+            var receivedCalls = loginViewModel.Login.ReceivedCalls();
+            //Assert.NotNull(loginViewModel.LoginService);
         }
 
-        public void RegisterSingleton(IMvxMainThreadDispatcher dispatcher)
-        {
-            Ioc.RegisterSingleton(dispatcher);
-        }
+        
     }
 }

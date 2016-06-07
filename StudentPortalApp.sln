@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentPortalApp.Core", "StudentPortalApp.Core\StudentPortalApp.Core.csproj", "{8C63053F-D664-4578-B8A2-95C885E58725}"
 EndProject
@@ -18,8 +18,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentPortalApp.Droid", "StudentPortalApp.Droid\StudentPortalApp.Droid.csproj", "{2111650B-797C-4D49-9542-0DF6370C9DE2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentPortalApp.Ios", "StudentPortalApp.Ios\StudentPortalApp.Ios.csproj", "{C560C9C8-7628-496F-8226-0E6B5C5EA307}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentPortalApp.Core.Tests", "StudentPortalApp.Core.Tests\StudentPortalApp.Core.Tests.csproj", "{5D1742CC-5C93-4F97-9907-DAF021413B31}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentPortalApp.Ios.Tests", "StudentPortalApp.Ios.Tests\StudentPortalApp.Ios.Tests.csproj", "{8698DF22-C3F2-46EE-86A7-7F9B801C4A08}"
 EndProject
@@ -127,30 +125,6 @@ Global
 		{C560C9C8-7628-496F-8226-0E6B5C5EA307}.Release|iPhone.Build.0 = Release|iPhone
 		{C560C9C8-7628-496F-8226-0E6B5C5EA307}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{C560C9C8-7628-496F-8226-0E6B5C5EA307}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
-		{5D1742CC-5C93-4F97-9907-DAF021413B31}.Ad-Hoc|Any CPU.ActiveCfg = Release|Any CPU
-		{5D1742CC-5C93-4F97-9907-DAF021413B31}.Ad-Hoc|Any CPU.Build.0 = Release|Any CPU
-		{5D1742CC-5C93-4F97-9907-DAF021413B31}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
-		{5D1742CC-5C93-4F97-9907-DAF021413B31}.Ad-Hoc|iPhone.Build.0 = Release|Any CPU
-		{5D1742CC-5C93-4F97-9907-DAF021413B31}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{5D1742CC-5C93-4F97-9907-DAF021413B31}.Ad-Hoc|iPhoneSimulator.Build.0 = Release|Any CPU
-		{5D1742CC-5C93-4F97-9907-DAF021413B31}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
-		{5D1742CC-5C93-4F97-9907-DAF021413B31}.AppStore|Any CPU.Build.0 = Release|Any CPU
-		{5D1742CC-5C93-4F97-9907-DAF021413B31}.AppStore|iPhone.ActiveCfg = Release|Any CPU
-		{5D1742CC-5C93-4F97-9907-DAF021413B31}.AppStore|iPhone.Build.0 = Release|Any CPU
-		{5D1742CC-5C93-4F97-9907-DAF021413B31}.AppStore|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{5D1742CC-5C93-4F97-9907-DAF021413B31}.AppStore|iPhoneSimulator.Build.0 = Release|Any CPU
-		{5D1742CC-5C93-4F97-9907-DAF021413B31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5D1742CC-5C93-4F97-9907-DAF021413B31}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5D1742CC-5C93-4F97-9907-DAF021413B31}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{5D1742CC-5C93-4F97-9907-DAF021413B31}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{5D1742CC-5C93-4F97-9907-DAF021413B31}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{5D1742CC-5C93-4F97-9907-DAF021413B31}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{5D1742CC-5C93-4F97-9907-DAF021413B31}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5D1742CC-5C93-4F97-9907-DAF021413B31}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5D1742CC-5C93-4F97-9907-DAF021413B31}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{5D1742CC-5C93-4F97-9907-DAF021413B31}.Release|iPhone.Build.0 = Release|Any CPU
-		{5D1742CC-5C93-4F97-9907-DAF021413B31}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{5D1742CC-5C93-4F97-9907-DAF021413B31}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{8698DF22-C3F2-46EE-86A7-7F9B801C4A08}.Ad-Hoc|Any CPU.ActiveCfg = Ad-Hoc|iPhone
 		{8698DF22-C3F2-46EE-86A7-7F9B801C4A08}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
 		{8698DF22-C3F2-46EE-86A7-7F9B801C4A08}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
@@ -286,7 +260,6 @@ Global
 		{8C63053F-D664-4578-B8A2-95C885E58725} = {91CD889C-DACC-44FF-93B1-DD0011933689}
 		{2111650B-797C-4D49-9542-0DF6370C9DE2} = {710678C7-9B52-4FDE-83DF-DD43783EB090}
 		{C560C9C8-7628-496F-8226-0E6B5C5EA307} = {710678C7-9B52-4FDE-83DF-DD43783EB090}
-		{5D1742CC-5C93-4F97-9907-DAF021413B31} = {401DF19B-BF28-41C2-9704-E4089D390C2E}
 		{8698DF22-C3F2-46EE-86A7-7F9B801C4A08} = {48812784-D7BC-4F2B-925B-85946476F2C7}
 		{D3685387-04A5-43AD-B692-13CDF705AA25} = {48812784-D7BC-4F2B-925B-85946476F2C7}
 		{B0B9BB68-7B43-49DC-A5FD-69179A4ADB77} = {8F454B45-DA1E-4D11-ACDF-487560F5F218}
